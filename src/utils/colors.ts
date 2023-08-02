@@ -13,4 +13,8 @@ export const colors = {
   gray90: "#3e3e3e",
   gray100: "#282828",
   lightBlue: "#D7F0FE",
+  placeholder: '#A9A9A9',
+  gray1: '#696969',
+  tertiary: '#545454',
+  tertairy1: '#3E3E3E',
 };
