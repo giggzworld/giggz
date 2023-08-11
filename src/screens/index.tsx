@@ -12,6 +12,8 @@ import {
   VerifyIdentityScreen,
   VerifyKyc,
 } from "./verification";
+import { SplashScreen } from "./onboading/SplashScreen";
+import { AccountType } from "./onboading/AccountType";
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -31,6 +33,8 @@ export default function Navigation() {
         headerShown: false,
       }}
     >
+      <Stack.Screen name={ROUTES.WELCOME} component={SplashScreen} />
+      <Stack.Screen name={ROUTES.ACCOUNT_TYPE} component={AccountType} />
       <Stack.Screen name={ROUTES.LOGIN} component={LoginScreen} />
       <Stack.Screen name={ROUTES.BASE} component={DrawerNavigation} />
       <Stack.Screen name={ROUTES.UPLOAD_PROFILE_PIC} component={UploadProfilePic} />

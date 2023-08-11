@@ -7,6 +7,7 @@ export const ROUTES = {
   WALLET: 'Wallet',
   SIGNUP: 'Signup',
   LOGIN: 'Login',
+  ACCOUNT_TYPE: "AccountType",
   FORGOT_PASSWORD: 'ForgotPassword',
   SIGNUP_OFFER: 'SignupOffer',
   WELCOME: 'Welcome',
