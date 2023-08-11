@@ -6,11 +6,15 @@ import {
 } from 'react-native';
 import {
 	Colors,
+	Icon,
 	TextField,
 	TextFieldProps,
 } from 'react-native-ui-lib';
-// import Eye from '../../assets/svgs/eye.svg';
-type InputProps = TextFieldProps & {};
+import Eye from '../assets/svgs/eye.svg';
+import EyeSlash from '../assets/svgs/eyeSlash.svg';
+type InputProps = TextFieldProps & {
+	noMargin?: boolean;
+};
 
 export const TextInput: React.FC<InputProps> = ({
 	...props
@@ -37,25 +41,25 @@ export const TextInput: React.FC<InputProps> = ({
 				marginTop: 16,
 			}}
 			{...props}
-			// {...(!props && {
-			// 	'marginV-12': true,
-			// })}
+			{...(!props.noMargin && {
+				'marginV-12': true,
+			})}
 			br8
 			{...(isPasswordField
 				? {
 						secureTextEntry: !showPassword,
-						// trailingAccessory: (
-						// 	<Pressable
-						// 		onPress={() =>
-						// 			setShowPassword((p) => !p)
-						// 		}>
-						// 		{!showPassword ? (
-						// 			<EyeSlash />
-						// 		) : (
-						// 			<Eye />
-						// 		)}
-						// 	</Pressable>
-						// ),
+						trailingAccessory: (
+							<Pressable
+								onPress={() =>
+									setShowPassword((p) => !p)
+								}>
+								{!showPassword ? (
+									<Icon source={EyeSlash} />
+								) : (
+									<Icon source={Eye} />
+								)}
+							</Pressable>
+						),
 				  }
 				: {})}
 		/>

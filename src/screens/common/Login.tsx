@@ -60,7 +60,12 @@ export const LoginScreen = () => {
 							color: Colors.primary,
 						}}
 					/>
-					<TouchableOpacity>
+					<TouchableOpacity
+						onPress={() =>
+							navigation.navigate(
+								ROUTES.FORGOT_PASSWORD
+							)
+						}>
 						<Text
 							color={Colors.primary}
 							md

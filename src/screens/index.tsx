@@ -4,19 +4,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text, View } from 'react-native-ui-lib';
 import { ROUTES } from '../utils';
 import {
-  UploadProfilePic,
-  VerificationPhoneNum,
-  VerificationScreen,
-  VerifyHomeAddress,
-  VerifyIdentityScreen,
-  VerifyKyc,
-} from "./verification";
-import { SplashScreen } from "./onboarding";
-import { AccountType } from "./onboarding";
-	LoginScreen,
-	VerifyOtpCode,
-} from './common';
-import {
 	UploadProfilePic,
 	VerificationPhoneNum,
 	VerificationScreen,
@@ -24,8 +11,17 @@ import {
 	VerifyIdentityScreen,
 	VerifyKyc,
 } from './verification';
-import { SignUp } from './common/SignUp';
-import { LoginScreen, VerifyOtpCode } from './common';
+import { SplashScreen } from './onboarding';
+import { AccountType } from './onboarding';
+
+import {
+	LoginScreen,
+	VerifyOtpCode,
+	SignUp,
+} from './common';
+import ForgotPassword from './common/ForgotPassword';
+
+import React from 'react';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -38,34 +34,65 @@ const Home = () => (
 );
 
 export default function Navigation() {
-  return (
-    <Stack.Navigator
-      initialRouteName={ROUTES.LOGIN}
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Stack.Screen name={ROUTES.WELCOME} component={SplashScreen} />
-      <Stack.Screen name={ROUTES.ACCOUNT_TYPE} component={AccountType} />
-      <Stack.Screen name={ROUTES.LOGIN} component={LoginScreen} />
-      <Stack.Screen name={ROUTES.BASE} component={DrawerNavigation} />
-      <Stack.Screen name={ROUTES.UPLOAD_PROFILE_PIC} component={UploadProfilePic} />
-      <Stack.Screen
-        name={ROUTES.VERIFY_IDENTITY}
-        component={VerifyIdentityScreen}
-      />
-      <Stack.Screen name={ROUTES.VERIFICATION} component={VerificationScreen} />
-      <Stack.Screen
-        name={ROUTES.VERIFY_PHONE}
-        component={VerificationPhoneNum}
-      />
-      <Stack.Screen name={ROUTES.VERIFY_CODE} component={VerifyOtpCode} />
-      <Stack.Screen
-        name={ROUTES.VERIFY_HOME_ADDRESS}
-        component={VerifyHomeAddress}
-      />
-      <Stack.Screen name={ROUTES.VERIFY_KYC} component={VerifyKyc} />
+	return (
+		<Stack.Navigator
+			initialRouteName={ROUTES.LOGIN}
+			screenOptions={{
+				headerShown: false,
+			}}>
+			<Stack.Screen
+				name={ROUTES.WELCOME}
+				component={SplashScreen}
+			/>
+			<Stack.Screen
+				name={ROUTES.ACCOUNT_TYPE}
+				component={AccountType}
+			/>
+			<Stack.Screen
+				name={ROUTES.LOGIN}
+				component={LoginScreen}
+			/>
+			<Stack.Screen
+				name={ROUTES.BASE}
+				component={DrawerNavigation}
+			/>
+			<Stack.Screen
+				name={ROUTES.UPLOAD_PROFILE_PIC}
+				component={UploadProfilePic}
+			/>
+			<Stack.Screen
+				name={ROUTES.VERIFY_IDENTITY}
+				component={VerifyIdentityScreen}
+			/>
+			<Stack.Screen
+				name={ROUTES.VERIFICATION}
+				component={VerificationScreen}
+			/>
+			<Stack.Screen
+				name={ROUTES.VERIFY_PHONE}
+				component={VerificationPhoneNum}
+			/>
+			<Stack.Screen
+				name={ROUTES.VERIFY_CODE}
+				component={VerifyOtpCode}
+			/>
+			<Stack.Screen
+				name={ROUTES.VERIFY_HOME_ADDRESS}
+				component={VerifyHomeAddress}
+			/>
+			<Stack.Screen
+				name={ROUTES.VERIFY_KYC}
+				component={VerifyKyc}
+			/>
 
+			<Stack.Screen
+				name={ROUTES.LOGIN}
+				component={LoginScreen}
+			/>
+			<Stack.Screen
+				name={ROUTES.BASE}
+				component={DrawerNavigation}
+			/>
 			<Stack.Screen
 				name={ROUTES.UPLOAD_PROFILE_PIC}
 				component={UploadProfilePic}
@@ -95,10 +122,13 @@ export default function Navigation() {
 				component={VerifyKyc}
 			/>
 			<Stack.Screen
+				name={ROUTES.FORGOT_PASSWORD}
+				component={ForgotPassword}
+			/>
+			<Stack.Screen
 				name={ROUTES.SIGNUP}
 				component={SignUp}
 			/>
-		
 		</Stack.Navigator>
 	);
 }

@@ -1,4 +1,4 @@
-import { Colors, Spacings, Typography } from 'react-native-ui-lib';
+import { Assets, Colors, Spacings, Typography } from 'react-native-ui-lib';
 import { colors } from './colors';
 import { fonts } from './fonts';
 import { Platform } from 'react-native';
@@ -76,8 +76,15 @@ export const initUISystem = () => {
   Spacings.loadSpacings({
     page: 16,
   });
+  // Assets.loadAssetsGroup('icons', {
+  //   home: require('@assets/splash.png'),
+  // });
+  // Assets.loadAssetsGroup('images', {
+  //   logo: require('@assets/icon.png'),
+  // });
 };
 
+<<<<<<< HEAD
 
 export const formatSeconds = (seconds: number): string => {
   const minutes = `${Math.floor(seconds / 60)}`.padStart(2, '0');
@@ -85,3 +92,5 @@ export const formatSeconds = (seconds: number): string => {
 
   return `${minutes}:${remainingSeconds}`;
 };
+=======
+>>>>>>> 3156142 (forgot password)
