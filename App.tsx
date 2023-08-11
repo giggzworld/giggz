@@ -1,9 +1,10 @@
-import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import Navigation from './src/screens';
-import * as SplashScreen from 'expo-splash-screen';
+import "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import Navigation from "./src/screens";
+import * as SplashScreen from "expo-splash-screen";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import {
   useFonts,
   Poppins_100Thin,
@@ -24,13 +25,14 @@ import {
   Poppins_800ExtraBold_Italic,
   Poppins_900Black,
   Poppins_900Black_Italic,
-} from '@expo-google-fonts/poppins';
-import { useCallback, useEffect } from 'react';
-import { initUISystem } from './src/utils/common';
+} from "@expo-google-fonts/poppins";
+import React, { useCallback, useEffect } from "react";
+import { initUISystem } from "./src/utils/common";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [isReady, setIsReady] = React.useState(false);
   let [fontsLoaded] = useFonts({
     Poppins_100Thin,
     Poppins_100Thin_Italic,
@@ -54,16 +56,17 @@ export default function App() {
 
   useEffect(() => {
     initUISystem();
+    setIsReady(true);
   }, []);
 
   const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
+    if (fontsLoaded && isReady) {
       await SplashScreen.hideAsync();
     }
-  }, [fontsLoaded]);
-  console.log({ fontsLoaded });
+  }, [fontsLoaded, isReady]);
+  console.log({ fontsLoaded, isReady });
 
-  if (!fontsLoaded) {
+  if (!fontsLoaded || !isReady) {
     return null;
   }
 
@@ -72,7 +75,7 @@ export default function App() {
       <NavigationContainer>
         <Navigation />
       </NavigationContainer>
-      <StatusBar style='auto' />
+      <StatusBar style="auto" />
     </GestureHandlerRootView>
   );
 }

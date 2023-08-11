@@ -1,4 +1,16 @@
 export const colors = {
-  primary: '#1E4C67',
-  background: '#FAFAFA',
+  primary: "#1E4C67",
+  blue: "#163B4E",
+  background: "#FAFAFA",
+  gray: "#f4f4f4",
+  gray4: "#BDBDBD",
+  gray30: "#EAEAEA",
+  gray40: "#A9A9A9",
+  gray50: "#BFBFBF",
+  gray60: "#545454",
+  gray70: "#696969",
+  gray80: "#fafafa",
+  gray90: "#3e3e3e",
+  gray100: "#282828",
+  lightBlue: "#D7F0FE",
 };
