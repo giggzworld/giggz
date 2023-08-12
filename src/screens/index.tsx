@@ -52,18 +52,7 @@ export default function Navigation() {
 				name={ROUTES.LOGIN}
 				component={LoginScreen}
 			/>
-			<Stack.Screen
-				name={ROUTES.BASE}
-				component={DrawerNavigation}
-			/>
-			<Stack.Screen
-				name={ROUTES.UPLOAD_PROFILE_PIC}
-				component={UploadProfilePic}
-			/>
-			<Stack.Screen
-				name={ROUTES.VERIFY_IDENTITY}
-				component={VerifyIdentityScreen}
-			/>
+
 			<Stack.Screen
 				name={ROUTES.VERIFICATION}
 				component={VerificationScreen}
@@ -86,10 +75,6 @@ export default function Navigation() {
 			/>
 
 			<Stack.Screen
-				name={ROUTES.LOGIN}
-				component={LoginScreen}
-			/>
-			<Stack.Screen
 				name={ROUTES.BASE}
 				component={DrawerNavigation}
 			/>
@@ -100,26 +85,6 @@ export default function Navigation() {
 			<Stack.Screen
 				name={ROUTES.VERIFY_IDENTITY}
 				component={VerifyIdentityScreen}
-			/>
-			<Stack.Screen
-				name={ROUTES.VERIFICATION}
-				component={VerificationScreen}
-			/>
-			<Stack.Screen
-				name={ROUTES.VERIFY_PHONE}
-				component={VerificationPhoneNum}
-			/>
-			<Stack.Screen
-				name={ROUTES.VERIFY_CODE}
-				component={VerifyOtpCode}
-			/>
-			<Stack.Screen
-				name={ROUTES.VERIFY_HOME_ADDRESS}
-				component={VerifyHomeAddress}
-			/>
-			<Stack.Screen
-				name={ROUTES.VERIFY_KYC}
-				component={VerifyKyc}
 			/>
 			<Stack.Screen
 				name={ROUTES.FORGOT_PASSWORD}
