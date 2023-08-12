@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
 	Avatar,
 	Colors,
@@ -8,6 +8,7 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native-ui-lib';
+import avatar from '../assets/avatar.png';
 interface Props {
 	visible: boolean;
 	onDismiss: () => void;
@@ -35,7 +36,7 @@ export const SelectEmail = ({
 							key={index}
 							onPress={onDismiss}>
 							<View row marginT-19>
-								<Avatar />
+								<Avatar source={avatar} />
 								<View marginL-6>
 									<Text
 										md

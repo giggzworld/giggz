@@ -84,7 +84,6 @@ export const initUISystem = () => {
   // });
 };
 
-<<<<<<< HEAD
 
 export const formatSeconds = (seconds: number): string => {
   const minutes = `${Math.floor(seconds / 60)}`.padStart(2, '0');
@@ -92,5 +91,3 @@ export const formatSeconds = (seconds: number): string => {
 
   return `${minutes}:${remainingSeconds}`;
 };
-=======
->>>>>>> 3156142 (forgot password)

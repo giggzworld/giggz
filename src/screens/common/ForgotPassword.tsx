@@ -1,8 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native-ui-lib';
-
-import SetNewPassword from '../../components/SetNewPassword';
 import PasswordVerify from '../../components/PasswordVerify';
+import { SetNewPassword } from '@src/components/SetNewPassword';
 
 const ForgotPassword = () => {
 	const [isVerify, setIsVerified] =

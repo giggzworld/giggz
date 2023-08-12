@@ -11,7 +11,7 @@ import { TextInput } from '../../components/TextInput';
 import { SelectEmail } from '../../components/SelectEmail';
 import { useNavigation } from '@react-navigation/native';
 import { ROUTES } from '../../utils';
-
+import mail from '../../assets/svgs/mail.svg';
 export const LoginScreen = () => {
 	const [isVisible, setIsVisible] =
 		useState(false);
@@ -32,6 +32,7 @@ export const LoginScreen = () => {
 				<TextInput
 					label="Email Address"
 					placeholder="Email Address"
+					rightElement={mail}
 				/>
 
 				<TextInput

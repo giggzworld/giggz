@@ -12,13 +12,15 @@ import {
 } from 'react-native-ui-lib';
 import Eye from '../assets/svgs/eye.svg';
 import EyeSlash from '../assets/svgs/eyeSlash.svg';
+import { SvgProps } from 'react-native-svg';
 type InputProps = TextFieldProps & {
 	noMargin?: boolean;
+	rightElement?: React.FC<SvgProps>;
 };
 
-export const TextInput: React.FC<InputProps> = ({
-	...props
-}) => {
+export const TextInput: React.FC<InputProps> = (
+	props
+) => {
 	const isPasswordField = !!props.secureTextEntry;
 	const [showPassword, setShowPassword] =
 		React.useState(isPasswordField);
@@ -47,7 +49,7 @@ export const TextInput: React.FC<InputProps> = ({
 			br8
 			{...(isPasswordField
 				? {
-						secureTextEntry: !showPassword,
+						secureTextEntry: showPassword,
 						trailingAccessory: (
 							<Pressable
 								onPress={() =>
@@ -61,7 +63,11 @@ export const TextInput: React.FC<InputProps> = ({
 							</Pressable>
 						),
 				  }
-				: {})}
+				: {
+						trailingAccessory: (
+							<Icon source={props.rightElement} />
+						),
+				  })}
 		/>
 	);
 };

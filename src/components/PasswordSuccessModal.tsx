@@ -21,7 +21,7 @@ interface Props {
 export const PasswordSuccessModal = ({
 	visible,
 	onDismiss,
-	setIsVerified
+	setIsVerified,
 }: Props) => {
 	const navigation = useNavigation<any>();
 	return (
@@ -38,8 +38,14 @@ export const PasswordSuccessModal = ({
 				paddingT-32
 				paddingH-16
 				paddingT-19>
-				<Icon source={success} />
-				<Text h2 color={Colors.primary} center>
+				<View center>
+					<Icon source={success} />
+				</View>
+				<Text
+					h2
+					color={Colors.primary}
+					center
+					marginT-8>
 					Password successfuly changed
 				</Text>
 				<Text center marginB-24 marginT-8>
@@ -52,7 +58,7 @@ export const PasswordSuccessModal = ({
 					marginB-12
 					onPress={() => {
 						navigation.navigate(ROUTES.LOGIN);
-						setIsVerified(false)
+						setIsVerified(false);
 						onDismiss;
 					}}
 				/>

@@ -23,11 +23,7 @@ const PasswordVerify = ({
 	const pinInput = useRef<any | null>(null);
 	const [code, setCode] = useState('');
 	const [otp, setOtp] = useState(false);
-	const handleSubmit = () => {
-		if (otp === false) {
-			setOtp(true);
-		} else setIsVerified(true);
-	};
+
 	return (
 		<View paddingH-16>
 			<Text h2>Forgot password?</Text>
@@ -78,7 +74,11 @@ const PasswordVerify = ({
 			<Button
 				label="Continue"
 				marginT-32
-				onPress={handleSubmit}
+				onPress={() => {
+					!otp
+						? setOtp(true)
+						: setIsVerified(true);
+				}}
 			/>
 
 			<View row center marginT-40>

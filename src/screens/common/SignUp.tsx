@@ -11,14 +11,18 @@ import { TextInput } from '../../components/TextInput';
 import { SelectEmail } from '../../components/SelectEmail';
 import { useNavigation } from '@react-navigation/native';
 import { ROUTES } from '../../utils';
+import person from '../../assets/svgs/personIcon.svg';
+import mail from '../../assets/svgs/mail.svg';
 const details = [
 	{
 		label: 'First Name',
 		placeholder: 'Enter Name',
+		rightElement: person,
 	},
 	{
 		label: 'Email Address',
 		placeholder: 'Enter E-mail Address',
+		rightElement: mail,
 	},
 ];
 
@@ -45,6 +49,7 @@ export const SignUp = () => {
 						label={detail.label}
 						key={index}
 						placeholder={detail.placeholder}
+						rightElement={detail.rightElement}
 					/>
 				))}
 				<TextInput

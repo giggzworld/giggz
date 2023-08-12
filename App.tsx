@@ -4,7 +4,6 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import Navigation from './src/screens';
 import * as SplashScreen from 'expo-splash-screen';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {
 	useFonts,
 	Poppins_100Thin,
