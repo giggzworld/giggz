@@ -12,8 +12,8 @@ import {
   VerifyIdentityScreen,
   VerifyKyc,
 } from "./verification";
-import { SplashScreen } from "./onboading/SplashScreen";
-import { AccountType } from "./onboading/AccountType";
+import { SplashScreen } from "./onboarding";
+import { AccountType } from "./onboarding";
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
