@@ -11,70 +11,68 @@ import { TextInput } from '../../components/TextInput';
 import { SelectEmail } from '../../components/SelectEmail';
 import { useNavigation } from '@react-navigation/native';
 import { ROUTES } from '../../utils';
+import person from '../../assets/svgs/personIcon.svg';
 import mail from '../../assets/svgs/mail.svg';
-export const LoginScreen = () => {
+const details = [
+	{
+		label: 'First Name',
+		placeholder: 'Enter Name',
+		rightElement: person,
+	},
+	{
+		label: 'Email Address',
+		placeholder: 'Enter E-mail Address',
+		rightElement: mail,
+	},
+];
+
+export const SignUp = () => {
+	const navigation = useNavigation<any>();
 	const [isVisible, setIsVisible] =
 		useState(false);
+	console.log(isVisible);
 	const [isChecked, setIsChecked] =
 		useState(false);
-	const navigation = useNavigation<any>();
 	return (
 		<View paddingT-80 flex bg-white>
 			<View paddingH-16>
-				<Text h2>Welcome Back</Text>
+				<Text h2>Lets get started</Text>
 				<Text
 					marginT-10
 					medium
 					color={Colors.gray1}>
-					Please login to continue
+					We can’t wait to have you onboard
 				</Text>
 
-				<TextInput
-					label="Email Address"
-					placeholder="Email Address"
-					rightElement={mail}
-				/>
-
+				{details.map((detail, index) => (
+					<TextInput
+						label={detail.label}
+						key={index}
+						placeholder={detail.placeholder}
+						rightElement={detail.rightElement}
+					/>
+				))}
 				<TextInput
 					label="Password"
 					placeholder="Enter Password"
 					secureTextEntry
 					isPassword
 				/>
-				<View
-					row
-					style={{
-						justifyContent: 'space-between',
-						alignItems: 'center',
-						marginTop: 16,
-					}}>
-					<Checkbox
-						value={isChecked}
-						onValueChange={() =>
-							setIsChecked((prev) => !prev)
-						}
-						size={20}
-						color={Colors.primary}
-						label="Remember me"
-						labelStyle={{
-							fontSize: 12,
-							color: Colors.primary,
-						}}
-					/>
-					<TouchableOpacity
-						onPress={() =>
-							navigation.navigate(
-								ROUTES.FORGOT_PASSWORD
-							)
-						}>
-						<Text
-							color={Colors.primary}
-							md
-							medium>
-							Forgot Password?
-						</Text>
-					</TouchableOpacity>
-				</View>
+				<Checkbox
+					value={isChecked}
+					onValueChange={() =>
+						setIsChecked((prev) => !prev)
+					}
+					size={20}
+					color={Colors.primary}
+					label="I accept the Terms and Conditions & Privacy Policy"
+					labelStyle={{
+						fontSize: 12,
+						color: Colors.primary,
+					}}
+					containerStyle={{ marginTop: 16 }}
+				/>
+
 				<Button
 					label="SIGN-UP"
 					backgroundColor={Colors.primary}
@@ -88,17 +86,17 @@ export const LoginScreen = () => {
 				/>
 				<View row center marginT-40>
 					<Text md color={Colors.tertiary}>
-						Already have an account?
+						Do not have an account?
 					</Text>
 					<TouchableOpacity
 						onPress={() =>
-							navigation.navigate(ROUTES.SIGNUP)
+							navigation.navigate(ROUTES.LOGIN)
 						}>
 						<Text
 							md
 							marginL-2
 							color={Colors.primary}>
-							Signup here
+							Login here
 						</Text>
 					</TouchableOpacity>
 				</View>
