@@ -10,7 +10,7 @@ import {
   Dimensions,
 } from "react-native";
 import { colors } from "../../utils/colors";
-import { Button } from "../../components";
+import { Button } from "@src/components";
 import { fonts } from "../../utils/fonts";
 
 const { width } = Dimensions.get("window");
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   imageText: {
     position: "absolute",
-    left: 50,
+    left: "19%",
     bottom: 16,
     flex: 1,
     flexDirection: "row",
@@ -199,6 +199,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingHorizontal: 10,
     marginTop: 15,
+    width: "86%",
     fontFamily: fonts.regular,
   },
 });
