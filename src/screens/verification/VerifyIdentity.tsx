@@ -21,13 +21,16 @@ export const VerifyIdentityScreen: React.FC = () => {
           seamless verification process.
         </Text>
       </View>
-      <Button
-        white
-        label="PROCEED TO VERIFICATION"
-        marginB-8
-        onPress={() => setIsVisible(true)}
-      />
-      <Button outline label="TAKE ME TO DASHBOARD" />
+      <View centerH>
+        <Button
+          white
+          label="PROCEED TO VERIFICATION"
+          marginB-8
+          onPress={() => setIsVisible(true)}
+          style={{ width: "90%" }}
+        />
+        <Button outline label="TAKE ME TO DASHBOARD" style={{ width: "90%" }} />
+      </View>
       <VerifyModal
         isVisible={isVisible}
         setIsVisible={setIsVisible}

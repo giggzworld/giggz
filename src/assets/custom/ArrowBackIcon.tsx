@@ -1,7 +1,7 @@
 import React from "react";
 import Svg, { Path } from "react-native-svg";
 
-const ArrowBackIcon = ({
+export const ArrowBackIcon = ({
   color = "#000000",
   width = 15,
   height = 15,
@@ -23,5 +23,3 @@ type ArrowProps = {
   width?: number;
   height?: number;
 };
-
-export default ArrowBackIcon;

@@ -1,57 +1,46 @@
 import React from "react";
-import {
-  Dimensions,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { Button } from "../../components";
+import { Dimensions, StyleSheet, TouchableOpacity } from "react-native";
+import { Button } from "@src/components";
 import { fonts } from "../../utils/fonts";
-import ArrowBackIcon from "../../components/svgs/ArrowBackIcon";
-import { ROUTES } from "../../utils";
+import { ArrowBackIcon } from "@src/assets/custom";
+import { ROUTES } from "@src/utils";
+import ImageBg from "@src/assets/svgs/verification/verifyIdentity.svg";
+import { Image, Text, View } from "react-native-ui-lib";
 
 const { width } = Dimensions.get("window");
 
 export const AccountType = ({ navigation }: any) => {
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        style={{
-          flexDirection: "row",
-          position: "relative",
-          right: 155,
-          marginTop: 20,
-        }}
-        onPress={() => navigation.navigate(ROUTES.WELCOME)}
-      >
-        <ArrowBackIcon />
-      </TouchableOpacity>
-
-      <Image
-        source={require("../../../assets/welcome-image4.png")}
-        style={{
-          width: width,
-          resizeMode: "contain",
-          marginTop: 20,
-        }}
-      />
-
-      <View style={styles.textWrapper}>
-        <Text style={styles.title}>Choose account type</Text>
-        <Text style={styles.subtitle}>
+    <View marginH-16 flex centerV useSafeArea>
+      <View centerH>
+        <TouchableOpacity
+          style={{
+            flexDirection: "row",
+            position: "relative",
+            right: 155,
+            marginBottom: 38,
+          }}
+          onPress={() => navigation.navigate(ROUTES.WELCOME)}
+        >
+          <ArrowBackIcon />
+        </TouchableOpacity>
+        <Image source={ImageBg} resizeMode="contain" style={styles.image} />
+        <Text marginB-9 marginT-21 xl semiBold primary>
+          Choose account type
+        </Text>
+        <Text marginB-35 sm center gray70 style={{ width: "90%" }}>
           Find trusted artisans, explore a wide range of services, and easily
           book professionals for all your needs.
         </Text>
       </View>
 
-      <View style={styles.btnWrapper}>
+      <View centerH>
         <Button
           label="Continue as Artisan"
           uppercase
+          marginB-8
           style={{ width: "90%" }}
-          onPress={() => navigation.navigate(ROUTES.LOGIN)}
+          onPress={() => navigation.navigate(ROUTES.VERIFY_IDENTITY)}
         />
         <Button
           label="I want to hire an Artisan"
@@ -66,39 +55,7 @@ export const AccountType = ({ navigation }: any) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  textWrapper: {
-    alignItems: "center",
-    width: width,
-    marginTop: 20,
-  },
-
-  title: {
-    color: "#163B4E",
-    fontSize: 18,
-    lineHeight: 28,
-    fontFamily: fonts.semiBold,
-  },
-
-  subtitle: {
-    color: "#696969",
-    fontSize: 12,
-    lineHeight: 20,
-    textAlign: "center",
-    paddingHorizontal: 10,
-    marginTop: 15,
-    fontFamily: fonts.regular,
-  },
-
-  btnWrapper: {
-    width: "100%",
-    marginTop: 30,
-    alignItems: "center",
-    gap: 8,
+  image: {
+    height: 368,
   },
 });
