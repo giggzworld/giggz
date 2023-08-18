@@ -18,5 +18,8 @@ export const ROUTES = {
   VERIFY_CODE: 'VerifyCode',
   VERIFY_HOME_ADDRESS: 'VerifyHomeAddress',
   VERIFY_KYC: 'VerifyKyc',
-  NEW_PASSWORD:'NewPassword',
+  NEW_PASSWORD: 'NewPassword',
+  SETTINGS: 'Settings',
+  NOTIFICATION_SETTINGS: 'NotificationSettings',
+PASSWORD_SECURITY: 'PasswordSecurity',
 };

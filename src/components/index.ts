@@ -6,3 +6,5 @@ export * from './TextInput';
 export * from './PasswordVerify';
 export * from './SetNewPassword';
 export * from './PasswordSuccessModal';
+export * from './Switch'
+export * from './NotificationSettingsComp'

@@ -26,7 +26,6 @@ export const PasswordSuccessModal = ({
 	const navigation = useNavigation<any>();
 	return (
 		<Dialog
-			// useSafeArea
 			visible={visible}
 			onDismiss={onDismiss}
 			panDirection={
