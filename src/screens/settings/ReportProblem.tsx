@@ -20,7 +20,7 @@ const items: string[] = [
 	'Recommendations',
 ];
 
-const ReportProblem = () => {
+export const ReportProblem = () => {
 	const [visible, setIsVisible] = useState(false);
 	return (
 		<View flexG>
@@ -72,8 +72,6 @@ const ReportProblem = () => {
 		</View>
 	);
 };
-
-export default ReportProblem;
 
 const styles = StyleSheet.create({
 	upload: {

@@ -11,8 +11,10 @@ import {
 	VerifyIdentityScreen,
 	VerifyKyc,
 } from './verification';
-import { SplashScreen } from './onboarding';
-import { AccountType } from './onboarding';
+import {
+	SplashScreen,
+	AccountType,
+} from './onboarding';
 
 import {
 	LoginScreen,
@@ -26,11 +28,11 @@ import {
 	AppLock,
 	NotificationSettings,
 	PasswordSecurity,
+	ReportProblem,
 	ResetPassword,
 	SettingsScreen,
 	TwoStepVerification,
 } from './settings';
-import ReportProblem from './settings/ReportProblem';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
