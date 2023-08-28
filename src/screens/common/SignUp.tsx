@@ -13,6 +13,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ROUTES } from '../../utils';
 import person from '../../assets/svgs/personIcon.svg';
 import mail from '../../assets/svgs/mail.svg';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const details = [
 	{
 		label: 'First Name',
@@ -33,10 +34,16 @@ export const SignUp = () => {
 	console.log(isVisible);
 	const [isChecked, setIsChecked] =
 		useState(false);
+		const insets = useSafeAreaInsets();
 	return (
-		<View paddingT-80 flex bg-white>
+		<View
+			flexG
+			bg-white
+			style={{ paddingTop: insets.top }}>
 			<View paddingH-16>
-				<Text h2>Lets get started</Text>
+				<Text h2 marginT-40>
+					Lets get started
+				</Text>
 				<Text
 					marginT-10
 					medium

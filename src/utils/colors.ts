@@ -4,6 +4,7 @@ export const colors = {
   background: "#FAFAFA",
   gray: "#f4f4f4",
   gray4: "#BDBDBD",
+  gray8:"#878787",
   gray30: "#EAEAEA",
   gray40: "#A9A9A9",
   gray50: "#BFBFBF",
@@ -15,6 +16,8 @@ export const colors = {
   lightBlue: "#D7F0FE",
   placeholder: '#A9A9A9',
   gray1: '#696969',
+  green: "#5FDD97",
   tertiary: '#545454',
   tertairy1: '#3E3E3E',
+  cyan: '#D7F0FE',
 };

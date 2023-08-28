@@ -12,16 +12,23 @@ import { SelectEmail } from '../../components/SelectEmail';
 import { useNavigation } from '@react-navigation/native';
 import { ROUTES } from '../../utils';
 import mail from '../../assets/svgs/mail.svg';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 export const LoginScreen = () => {
 	const [isVisible, setIsVisible] =
 		useState(false);
 	const [isChecked, setIsChecked] =
 		useState(false);
 	const navigation = useNavigation<any>();
+	const insets = useSafeAreaInsets();
 	return (
-		<View paddingT-80 flex bg-white>
+		<View
+			flexG
+			bg-white
+			style={{ paddingTop: insets.top }}>
 			<View paddingH-16>
-				<Text h2>Welcome Back</Text>
+				<Text h2 marginT-40>
+					Welcome Back
+				</Text>
 				<Text
 					marginT-10
 					medium

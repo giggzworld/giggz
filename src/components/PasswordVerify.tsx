@@ -9,7 +9,8 @@ import { TextInput } from './TextInput';
 import { Button } from './Button';
 import { ROUTES } from '../utils';
 import { useNavigation } from '@react-navigation/native';
-import SmoothPinCodeInput from 'react-native-smooth-pincode-input-v2';
+import { PinCodeInput } from './SmoothPinCodeInput';
+
 interface Props {
 	setIsVerified: React.Dispatch<
 		React.SetStateAction<boolean>
@@ -20,8 +21,7 @@ const PasswordVerify = ({
 	setIsVerified,
 }: Props) => {
 	const navigation = useNavigation<any>();
-	const pinInput = useRef<any | null>(null);
-	const [code, setCode] = useState('');
+	const [pinCode, setPinCode] = useState('');
 	const [otp, setOtp] = useState(false);
 
 	return (
@@ -47,26 +47,9 @@ const PasswordVerify = ({
 							justifyContent: 'center',
 							alignItems: 'center',
 						}}>
-						<SmoothPinCodeInput
-							ref={pinInput}
-							placeholder={
-								<View
-									style={{
-										width: 10,
-										height: 10,
-										borderRadius: 25,
-										// opacity: 0.3,
-										borderWidth: 1,
-										borderColor: '#000000',
-									}}></View>
-							}
-							cellSize={62}
-							cellSpacing={24}
-							value={code}
-							codeLength={4}
-							onTextChange={(code: any) =>
-								setCode(code)
-							}
+						<PinCodeInput
+							pinCode={pinCode}
+							setPinCode={setPinCode}
 						/>
 					</View>
 				</View>
