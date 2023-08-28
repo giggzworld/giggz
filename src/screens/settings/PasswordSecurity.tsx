@@ -13,23 +13,29 @@ import appLock from '../../assets/svgs/settings/appLock.svg';
 import password from '../../assets/svgs/settings/password.svg';
 import biometric from '../../assets/svgs/settings/biometric.svg';
 import { ItemComponent } from './Settings';
+import { ROUTES } from '@src/utils';
+import { useNavigation } from '@react-navigation/native';
 const securityData = [
 	{
 		name: 'Change Password',
 		icon: password,
+		path: ROUTES.SET_NEW_PASSWORD,
 	},
 	{
 		name: 'App Lock',
-		icon: appLock,
+        icon: appLock,
+        path: ROUTES.APP_LOCK,
 	},
 	{
 		name: 'Two - Step Verification',
 		icon: verificaton,
+		path: ROUTES.TWO_FA,
 	},
 ];
 
-const PasswordSecurity = () => {
+export const PasswordSecurity = () => {
 	const [turnOn, setTurnOn] = useState(false);
+	const navigation = useNavigation<any>();
 	return (
 		<View>
 			<Header
@@ -45,6 +51,9 @@ const PasswordSecurity = () => {
 						items={item.name}
 						icon={item.icon}
 						key={index}
+						handlePress={() =>
+							navigation.navigate(item.path)
+						}
 					/>
 				))}
 				<SwitchComp
@@ -59,4 +68,3 @@ const PasswordSecurity = () => {
 		</View>
 	);
 };
-export default PasswordSecurity;

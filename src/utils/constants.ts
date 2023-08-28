@@ -21,5 +21,9 @@ export const ROUTES = {
   NEW_PASSWORD: 'NewPassword',
   SETTINGS: 'Settings',
   NOTIFICATION_SETTINGS: 'NotificationSettings',
-PASSWORD_SECURITY: 'PasswordSecurity',
+  PASSWORD_SECURITY: 'PasswordSecurity',
+  SET_NEW_PASSWORD: 'SetNewPassword',
+  TWO_FA: 'TwoFactorAuthentication',
+  APP_LOCK: 'AppLock',
+  REPORT_PROBLEM: 'ReportProblem'
 };

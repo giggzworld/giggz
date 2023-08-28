@@ -1,6 +1,10 @@
 import { Header } from '@src/components/Header';
-import React from 'react';
+import React, {
+	useEffect,
+	useState,
+} from 'react';
 import {
+	Badge,
 	Colors,
 	Icon,
 	Text,
@@ -32,10 +36,12 @@ const other = [
 	{
 		name: 'Clear Cache',
 		img: bin,
+		path: 'cache',
 	},
 	{
 		name: 'Report a Bug  or Problem',
 		img: report,
+		path: ROUTES.REPORT_PROBLEM,
 	},
 ];
 
@@ -78,6 +84,18 @@ export const ItemComponent = ({
 };
 export const SettingsScreen = () => {
 	const navigation = useNavigation<any>();
+	const [clearCache, setClearCache] =
+		useState(false);
+	const handlePress = (path: any) => {
+		if (path === 'cache') {
+			setClearCache(true);
+		} else {
+			navigation.navigate(path);
+		}
+	};
+	useEffect(() => {
+		setTimeout(() => setClearCache(false), 3000);
+	}, [clearCache]);
 	return (
 		<View flexG>
 			<Header noBgColor title="Setting" />
@@ -104,15 +122,28 @@ export const SettingsScreen = () => {
 					</Text>
 					{other.map((item, index) => (
 						<ItemComponent
-							// handlePress={() =>
-							//     navigation.navigate(item.path)
-							// }
+							handlePress={() =>
+								handlePress(item.path)
+							}
 							icon={item.img}
 							items={item.name}
 							key={index}
 						/>
 					))}
 				</View>
+			</View>
+			<View centerH marginB-34>
+				{clearCache && (
+					<Badge
+						label="Cache cleared successfully"
+						size={48}
+						labelStyle={{
+							color: 'black',
+						}}
+						backgroundColor={Colors.green}
+						borderRadius={4}
+					/>
+				)}
 			</View>
 			<View paddingH-16 marginB-41>
 				<Text>Version 1.0</Text>

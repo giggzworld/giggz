@@ -23,10 +23,14 @@ import ForgotPassword from './common/ForgotPassword';
 
 import React from 'react';
 import {
+	AppLock,
 	NotificationSettings,
+	PasswordSecurity,
+	ResetPassword,
 	SettingsScreen,
+	TwoStepVerification,
 } from './settings';
-import PasswordSecurity from './settings/PasswordSecurity';
+import ReportProblem from './settings/ReportProblem';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -110,6 +114,22 @@ export default function Navigation() {
 			<Stack.Screen
 				name={ROUTES.PASSWORD_SECURITY}
 				component={PasswordSecurity}
+			/>
+			<Stack.Screen
+				name={ROUTES.SET_NEW_PASSWORD}
+				component={ResetPassword}
+			/>
+			<Stack.Screen
+				name={ROUTES.TWO_FA}
+				component={TwoStepVerification}
+			/>
+			<Stack.Screen
+				name={ROUTES.APP_LOCK}
+				component={AppLock}
+			/>
+			<Stack.Screen
+				name={ROUTES.REPORT_PROBLEM}
+				component={ReportProblem}
 			/>
 		</Stack.Navigator>
 	);

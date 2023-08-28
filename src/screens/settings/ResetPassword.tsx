@@ -1,30 +1,25 @@
+import { PasswordSuccessModal } from '@src/components';
+import { Button } from '@src/components/Button';
+import { Header } from '@src/components/Header';
+import { TextInput } from '@src/components/TextInput';
+import { ROUTES } from '@src/utils';
 import React, { useState } from 'react';
 import {
 	View,
 	Text,
 	Colors,
 } from 'react-native-ui-lib';
-import { TextInput } from './TextInput';
-import { Button } from './Button';
-import { PasswordSuccessModal } from './PasswordSuccessModal';
-import { ROUTES } from '@src/utils';
 
-interface Props {
-	setIsVerified: React.Dispatch<
-		React.SetStateAction<boolean>
-	>;
-}
-
-export const SetNewPassword = ({
-	setIsVerified,
-}: Props) => {
+export const ResetPassword = () => {
 	const [isVisible, setIsVisible] =
 		useState(false);
-
 	return (
-		<View>
-			<View paddingH-16>
-				<Text h2>Set new password?</Text>
+		<View flexG>
+			<Header
+				noBgColor
+				title="Set New Password"
+			/>
+			<View flex paddingH-16>
 				<Text
 					marginT-10
 					medium
@@ -34,33 +29,35 @@ export const SetNewPassword = ({
 				</Text>
 
 				<TextInput
+					label="Old password"
+					placeholder="Enter password"
+					secureTextEntry
+				/>
+				<TextInput
 					label="Type new password"
 					placeholder="Enter password"
 					secureTextEntry
-					isPassword
 				/>
 				<TextInput
 					label="Retype new password"
 					placeholder="Enter Password"
 					secureTextEntry
-					isPassword
 				/>
 				<Button
-					label="Continue"
+					label="Reset Password"
 					marginT-32
 					onPress={() => setIsVisible(true)}
 				/>
 			</View>
 			<PasswordSuccessModal
-				buttonLabel="LOGIN NOW"
-				title="Password successfuly changed"
+				buttonLabel="Done"
+				title="Password  successfully changed"
 				description="Your password has been changed. Your
 				account is now protected with a new
 				password. Keep it safe and secure"
-				route={ROUTES.LOGIN}
 				visible={isVisible}
 				onDismiss={() => setIsVisible(false)}
-				otherFunction={() => setIsVerified(false)}
+				route={ROUTES.SETTINGS}
 			/>
 		</View>
 	);
