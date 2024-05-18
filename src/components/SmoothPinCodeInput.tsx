@@ -5,7 +5,11 @@ import { View } from 'react-native-ui-lib';
 interface Inputpin {
 	pinCode: string;
 	setPinCode: React.Dispatch<
-		React.SetStateAction<string>
+		React.SetStateAction<{
+			name: string;
+			isPin: boolean;
+			pinValue: string;
+		}>
 	>;
 }
 

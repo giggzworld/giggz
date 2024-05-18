@@ -17,6 +17,7 @@ interface VerifyModalProps {
 	buttonText: string;
 	buttonOutlineText?: string;
 	route: string;
+	route2: string;
 	icon: any;
 }
 
@@ -30,6 +31,7 @@ export const VerifyModal: React.FC<
 	buttonText,
 	buttonOutlineText,
 	route,
+	route2,
 	icon,
 }: VerifyModalProps) => {
 	const navigation = useNavigation<any>();
@@ -61,6 +63,10 @@ export const VerifyModal: React.FC<
 				/>
 				<Button
 					outline
+					onPress={() => {
+						setIsVisible(!isVisible);
+						navigation.navigate(route2);
+					}}
 					label={buttonOutlineText}
 					marginB-10
 				/>
