@@ -33,6 +33,8 @@ import {
 	SettingsScreen,
 	TwoStepVerification,
 } from './settings';
+import Profile from './profile/Profile';
+import ProfileEdit from './profile/ProfileEdit';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -132,6 +134,14 @@ export default function Navigation() {
 			<Stack.Screen
 				name={ROUTES.REPORT_PROBLEM}
 				component={ReportProblem}
+			/>
+			<Stack.Screen
+				name={ROUTES.PROFILE}
+				component={Profile}
+			/>
+			<Stack.Screen
+				name={ROUTES.PROFILE_EDIT}
+				component={ProfileEdit}
 			/>
 		</Stack.Navigator>
 	);

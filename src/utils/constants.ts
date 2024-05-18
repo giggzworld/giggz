@@ -25,5 +25,7 @@ export const ROUTES = {
   SET_NEW_PASSWORD: 'SetNewPassword',
   TWO_FA: 'TwoFactorAuthentication',
   APP_LOCK: 'AppLock',
-  REPORT_PROBLEM: 'ReportProblem'
+  REPORT_PROBLEM: 'ReportProblem',
+  PROFILE: 'Profile', 
+  PROFILE_EDIT: 'ProfileEdit',
 };

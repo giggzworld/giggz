@@ -26,6 +26,7 @@ export const PasswordSuccessModal = ({
 	title,
 	buttonLabel,
 	route,
+	otherFunction,
 	description,
 }: Props) => {
 	const navigation = useNavigation<any>();
@@ -59,6 +60,7 @@ export const PasswordSuccessModal = ({
 					label={buttonLabel}
 					marginB-12
 					onPress={() => {
+						otherFunction;
 						route && navigation.navigate(route);
 						onDismiss;
 					}}

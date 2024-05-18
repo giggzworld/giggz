@@ -7,6 +7,7 @@ import {
 	View,
 } from 'react-native-ui-lib';
 import ArrowLeft from '../assets/svgs/arrow-left.svg';
+import CancelIcon from '../assets/svgs/cancel2.svg';
 import { useNavigation } from '@react-navigation/native';
 import { ROUTES } from '../utils/constants';
 import { StyleSheet } from 'react-native';
@@ -18,6 +19,7 @@ interface HeaderProps {
 	hideButton?: boolean;
 	onPressBack?: () => void;
 	noBgColor?: boolean;
+	isProfile?: boolean;
 }
 
 const styles = StyleSheet.create({
@@ -37,6 +39,7 @@ export const Header: React.FC<HeaderProps> = ({
 	hideButton,
 	onPressBack,
 	noBgColor,
+	isProfile,
 }) => {
 	const navigation = useNavigation<any>();
 	const insets = useSafeAreaInsets();
@@ -66,7 +69,9 @@ export const Header: React.FC<HeaderProps> = ({
 				spread>
 				<TouchableOpacity onPress={goBack}>
 					<Icon
-						source={ArrowLeft}
+						source={
+							isProfile ? CancelIcon : ArrowLeft
+						}
 						tintColor={Colors.black2}
 					/>
 				</TouchableOpacity>
