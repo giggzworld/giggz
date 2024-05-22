@@ -6,7 +6,8 @@ export * from './TextInput';
 export * from './PasswordVerify';
 export * from './SetNewPassword';
 export * from './PasswordSuccessModal';
-export * from './Switch'
-export * from './Select'
-export * from './NotificationSettingsComp'
-export * from './SmoothPinCodeInput'
+export * from './Switch';
+export * from './Select';
+export * from './NotificationSettingsComp';
+export * from './SmoothPinCodeInput';
+export * from './SelectDropDown';
