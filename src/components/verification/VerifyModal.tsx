@@ -17,7 +17,7 @@ interface VerifyModalProps {
 	buttonText: string;
 	buttonOutlineText?: string;
 	route: string;
-	route2: string;
+	route2?: string;
 	icon: any;
 }
 

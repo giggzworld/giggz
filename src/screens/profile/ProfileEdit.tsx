@@ -76,6 +76,7 @@ const ProfileEdit = () => {
 				buttonOutlineText="FINISH AND SAVE"
 				route={ROUTES.PROFILE}
 				icon={DangerIcon}
+				route2={ROUTES.VERIFY_CODE}
 			/>
 		</View>
 	);
