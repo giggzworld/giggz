@@ -6,9 +6,11 @@ import { VerifyModal } from "@src/components/verification";
 import ImageBg from "@src/assets/svgs/verification/verifyIdentity.svg";
 import { ROUTES } from "@src/utils/constants";
 import DangerIcon from "@src/assets/svgs/danger.svg";
+import { useNavigation } from "@react-navigation/native";
 
 export const VerifyIdentityScreen: React.FC = () => {
   const [isVisible, setIsVisible] = React.useState(false);
+  const navigation = useNavigation<any>();
   return (
     <View marginH-16 flex centerV useSafeArea>
       <View centerH>
@@ -29,7 +31,12 @@ export const VerifyIdentityScreen: React.FC = () => {
           onPress={() => setIsVisible(true)}
           style={{ width: "90%" }}
         />
-        <Button outline label="TAKE ME TO DASHBOARD" style={{ width: "90%" }} />
+        <Button
+          outline
+          label="TAKE ME TO DASHBOARD"
+          style={{ width: "90%" }}
+          onPress={() => navigation.navigate(ROUTES.BASE)}
+        />
       </View>
       <VerifyModal
         isVisible={isVisible}

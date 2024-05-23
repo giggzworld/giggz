@@ -9,28 +9,24 @@ import {
 import { Button } from './Button';
 import success from '../assets/svgs/mark.svg';
 import { useNavigation } from '@react-navigation/native';
-// import { ROUTES } from '../utils';
+import { ROUTES } from '../utils';
 interface Props {
 	visible: boolean;
 	onDismiss: () => void;
-	otherFunction?: () => void;
-	buttonLabel: string;
-	route?: any;
-	title: string;
-	description: string;
+	setIsVerified: React.Dispatch<
+		React.SetStateAction<boolean>
+	>;
 }
 
 export const PasswordSuccessModal = ({
 	visible,
 	onDismiss,
-	title,
-	buttonLabel,
-	route,
-	description,
+	setIsVerified,
 }: Props) => {
 	const navigation = useNavigation<any>();
 	return (
 		<Dialog
+			// useSafeArea
 			visible={visible}
 			onDismiss={onDismiss}
 			panDirection={
@@ -50,16 +46,19 @@ export const PasswordSuccessModal = ({
 					color={Colors.primary}
 					center
 					marginT-8>
-					{title}
+					Password successfuly changed
 				</Text>
 				<Text center marginB-24 marginT-8>
-					{description}
+					Your password has been changed. Your
+					account is now protected with a new
+					password. Keep it safe and secure
 				</Text>
 				<Button
-					label={buttonLabel}
+					label="LOGIN NOW"
 					marginB-12
 					onPress={() => {
-						route && navigation.navigate(route);
+						navigation.navigate(ROUTES.LOGIN);
+						setIsVerified(false);
 						onDismiss;
 					}}
 				/>

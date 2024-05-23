@@ -12,6 +12,9 @@ import {
 import { colors } from "../../utils/colors";
 import { Button } from "@src/components";
 import { fonts } from "../../utils/fonts";
+import { Colors } from "react-native-ui-lib";
+import { SwiperFlatList } from "react-native-swiper-flatlist";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const { width } = Dimensions.get("window");
 
@@ -62,16 +65,34 @@ export const SplashScreen = ({ navigation }: any) => {
     setCurrentIndex(getCurrentIndex);
   };
 
+  const insets = useSafeAreaInsets();
+
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (currentIndex < slides.length - 1) {
+  //       setCurrentIndex(currentIndex + 1);
+  //     } else {
+  //       setCurrentIndex(0);
+  //     }
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, [currentIndex]);
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
       <StatusBar backgroundColor={colors.background} />
       <View style={{ flex: 1, alignItems: "center" }}>
-        <FlatList
-          onMomentumScrollEnd={updateCurrentSlideIndex}
-          pagingEnabled
+        <SwiperFlatList
+          autoplay
+          autoplayDelay={4}
+          autoplayLoop
+          autoplayLoopKeepAnimation
+          showPagination
           data={slides}
-          horizontal
-          showsHorizontalScrollIndicator={false}
+          paginationStyle={{ bottom: 228 + insets.bottom }}
+          paginationStyleItem={styles.indicator}
+          paginationActiveColor={Colors.primary}
+          paginationDefaultColor={Colors.lightBlue}
           renderItem={({ item }) => (
             <Slide item={item} currentIndex={currentIndex} />
           )}
@@ -100,18 +121,18 @@ export const Slide = ({ item, currentIndex }: any) => {
     <View style={styles.onboard}>
       <View style={styles.onboardTop}>
         <Image
-          source={item.imageWrapper.image}
+          source={item?.imageWrapper?.image}
           style={{ width, resizeMode: "contain" }}
         />
         <View style={styles.imageText}>
-          <Text style={styles.imageTextLeft}>{item.imageWrapper.name}</Text>
+          <Text style={styles.imageTextLeft}>{item?.imageWrapper?.name}</Text>
           <Text style={styles.imageTextRight}>
-            {item.imageWrapper.occupation}
+            {item?.imageWrapper?.occupation}
           </Text>
         </View>
       </View>
 
-      <View style={styles.indicatorWrapper}>
+      {/* <View style={styles.indicatorWrapper}>
         {slides.map((_, index) => (
           <View
             key={index}
@@ -123,7 +144,7 @@ export const Slide = ({ item, currentIndex }: any) => {
             ]}
           />
         ))}
-      </View>
+      </View> */}
 
       <View style={styles.bottom}>
         <Text style={styles.bottomText}>{item.title}</Text>
@@ -184,7 +205,7 @@ const styles = StyleSheet.create({
   bottom: {
     alignItems: "center",
     width: width,
-    marginTop: 20,
+    marginTop: 48,
   },
   bottomText: {
     color: "#163B4E",

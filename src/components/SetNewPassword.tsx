@@ -7,7 +7,6 @@ import {
 import { TextInput } from './TextInput';
 import { Button } from './Button';
 import { PasswordSuccessModal } from './PasswordSuccessModal';
-import { ROUTES } from '@src/utils';
 
 interface Props {
 	setIsVerified: React.Dispatch<
@@ -52,15 +51,9 @@ export const SetNewPassword = ({
 				/>
 			</View>
 			<PasswordSuccessModal
-				buttonLabel="LOGIN NOW"
-				title="Password successfuly changed"
-				description="Your password has been changed. Your
-				account is now protected with a new
-				password. Keep it safe and secure"
-				route={ROUTES.LOGIN}
 				visible={isVisible}
 				onDismiss={() => setIsVisible(false)}
-				otherFunction={() => setIsVerified(false)}
+				setIsVerified={setIsVerified}
 			/>
 		</View>
 	);

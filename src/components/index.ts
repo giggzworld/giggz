@@ -1,4 +1,5 @@
 export * from './Button';
+export * from './Drawer';
 export * from './Header';
 export * from './verification';
 export * from './SelectEmail';
@@ -6,7 +7,3 @@ export * from './TextInput';
 export * from './PasswordVerify';
 export * from './SetNewPassword';
 export * from './PasswordSuccessModal';
-export * from './Switch'
-export * from './Select'
-export * from './NotificationSettingsComp'
-export * from './SmoothPinCodeInput'

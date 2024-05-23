@@ -1,7 +1,0 @@
-export * from  './Settings'
-export * from './NotificationSettings'
-export * from './PasswordSecurity'
-export * from './ResetPassword'
-export * from './TwoStepVerification'
-export * from './AppLock'
-export * from './ReportProblem'

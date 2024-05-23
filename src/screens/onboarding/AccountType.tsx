@@ -1,15 +1,13 @@
 import React from "react";
-import { Dimensions, StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import { Button } from "@src/components";
-import { fonts } from "../../utils/fonts";
 import { ArrowBackIcon } from "@src/assets/custom";
 import { ROUTES } from "@src/utils";
 import ImageBg from "@src/assets/svgs/verification/verifyIdentity.svg";
 import { Image, Text, View } from "react-native-ui-lib";
 
-const { width } = Dimensions.get("window");
-
 export const AccountType = ({ navigation }: any) => {
+  const isArtisan = true;
   return (
     <View marginH-16 flex centerV useSafeArea>
       <View centerH>
@@ -40,14 +38,14 @@ export const AccountType = ({ navigation }: any) => {
           uppercase
           marginB-8
           style={{ width: "90%" }}
-          onPress={() => navigation.navigate(ROUTES.VERIFY_IDENTITY)}
+          onPress={() => navigation.navigate(ROUTES.SIGNUP, { isArtisan })}
         />
         <Button
           label="I want to hire an Artisan"
           uppercase
           outline
           style={{ width: "90%" }}
-          onPress={() => navigation.navigate(ROUTES.LOGIN)}
+          onPress={() => navigation.navigate(ROUTES.SIGNUP)}
         />
       </View>
     </View>

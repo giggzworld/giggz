@@ -6,22 +6,26 @@ import SmoothPinCodeInput from "react-native-smooth-pincode-input-v2";
 import { formatSeconds } from "@src/utils/common";
 import SuccessIcon from "@src/assets/svgs/success.svg";
 import { ROUTES } from "@src/utils";
+import { verifyPhoneCode } from "@src/api/auth";
+import { showMessage } from "react-native-flash-message";
+import { useMutation } from "@tanstack/react-query";
 
-export const VerifyOtpCode: React.FC = () => {
+export const VerifyOtpCode: React.FC = ({ route }: any) => {
   const codeInputRef = React.useRef<typeof SmoothPinCodeInput>(null);
   const [code, setCode] = React.useState("");
   const [counter, setCounter] = React.useState(0);
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
   const [currentCode, setCurrentCode] = React.useState("");
   const [isVisible, setIsVisible] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   const windowDimensions = useWindowDimensions();
   let cellSize, cellSpacing;
   if (windowDimensions.width < 375) {
-    cellSize = 60;
+    cellSize = 30;
     cellSpacing = cellSize / 2.5;
   } else if (windowDimensions.width > 375) {
-    cellSize = 75;
+    cellSize = 48;
     cellSpacing = cellSize / 2.5;
   }
 
@@ -38,7 +42,46 @@ export const VerifyOtpCode: React.FC = () => {
       clearTimeout(intervalRef.current!);
     };
   }, [counter]);
+  console.log("code", code);
 
+  const isValid = code.length === 6;
+
+  const mutation = useMutation({
+    mutationFn: verifyPhoneCode,
+    onSuccess: (res) => {
+      console.log(res);
+      showMessage({
+        message: "Success",
+        description: "User created successfully",
+        type: "success",
+      });
+      setLoading(false);
+      setIsVisible(true);
+    },
+    onError: (err) => {
+      console.log(err);
+      showMessage({
+        message: "Error",
+        description: "Something went wrong",
+        type: "danger",
+      });
+      setLoading(false);
+    },
+  });
+  const handleSubmission = async () => {
+    if (!isValid) {
+      return showMessage({
+        message: "Error",
+        description: "Please fill all fields",
+        type: "danger",
+      });
+    }
+    setLoading(true);
+    mutation.mutate({
+      phone_number: route?.params?.phone_number,
+      otp: code,
+    });
+  };
   return (
     <View bg-white flexG useSafeArea>
       <Header title="Verification" />
@@ -53,7 +96,7 @@ export const VerifyOtpCode: React.FC = () => {
           <SmoothPinCodeInput
             ref={codeInputRef}
             placeholder="0"
-            codeLength={4}
+            codeLength={6}
             restrictToNumbers
             keyBoardType="number-pad"
             cellSpacing={cellSpacing}
@@ -106,7 +149,12 @@ export const VerifyOtpCode: React.FC = () => {
             </TouchableOpacity>
           </View>
         )}
-        <Button label="VERIFY" onPress={() => setIsVisible(true)} />
+        <Button
+          label="VERIFY"
+          onPress={handleSubmission}
+          disabled={!isValid || loading}
+          loading={loading}
+        />
       </View>
       <VerifyModal
         isVisible={isVisible}
