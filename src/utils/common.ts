@@ -54,6 +54,7 @@ export const initUISystem = () => {
       fontFamily: fonts.black,
       fontWeight: isIOS ? '800' : undefined,
     },
+    xs: { fontSize: 10, lineHeight: 16, fontFamily: fonts.regular },
     sm: { fontSize: 12, lineHeight: 16, fontFamily: fonts.regular },
     md: { fontSize: 14, lineHeight: 19, fontFamily: fonts.regular },
     lg: { fontSize: 16, lineHeight: 21, fontFamily: fonts.regular },
