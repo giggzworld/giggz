@@ -1,6 +1,6 @@
 import SelectDropdown from 'react-native-select-dropdown';
 import { StyleSheet } from 'react-native';
-// import arrow_down from '../../assets/svgs/arrow_down.svg';
+import ArrowDown from '../assets/svgs/arrow_down.svg';
 import {
 	Icon,
 	View,
@@ -14,9 +14,8 @@ interface SelectProps {
 }
 
 const data = [
-	{ title: 'any' },
-	{ title: 'boy' },
-	{ title: 'me' },
+	{ title: 'Ready to work' },
+	{ title: 'Not ready to work' },
 ];
 export const SelectDropDowm: React.FC<
 	SelectProps
@@ -30,6 +29,7 @@ export const SelectDropDowm: React.FC<
 			renderButton={(selectedItem, isOpened) => {
 				return (
 					<View
+						backgroundColor="#A5C6DF"
 						style={styles.dropdownButtonStyle}>
 						{selectedItem?.icon && (
 							<Icon
@@ -48,10 +48,8 @@ export const SelectDropDowm: React.FC<
 								'Select your mood'}
 						</Text>
 						<Icon
-							name={
-								isOpened
-									? 'chevron-up'
-									: 'chevron-down'
+							source={
+								isOpened ? ArrowDown : ArrowDown
 							}
 							style={
 								styles.dropdownButtonArrowStyle
@@ -100,7 +98,7 @@ const styles = StyleSheet.create({
 	},
 	dropdownButtonTxtStyle: {
 		flex: 1,
-		fontSize: 18,
+		fontSize: 14,
 		fontWeight: '500',
 		color: '#151E26',
 	},

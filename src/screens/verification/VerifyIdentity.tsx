@@ -52,7 +52,7 @@ export const VerifyIdentityScreen: React.FC =
 						label="TAKE ME TO DASHBOARD"
 						style={{ width: '90%' }}
 						onPress={() =>
-							navigation.navigate(ROUTES.PROFILE)
+							navigation.navigate(ROUTES.BASE)
 						}
 					/>
 				</View>

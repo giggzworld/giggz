@@ -35,6 +35,7 @@ import {
 } from './settings';
 import Profile from './profile/Profile';
 import ProfileEdit from './profile/ProfileEdit';
+import { Wallet } from './wallet/Wallet';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -179,7 +180,7 @@ export const TabNavigation = () => (
 		/>
 		<Tab.Screen
 			name={ROUTES.WALLET}
-			component={Home}
+			component={Wallet}
 		/>
 	</Tab.Navigator>
 );

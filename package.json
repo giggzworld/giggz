@@ -38,6 +38,7 @@
     "react-native-smooth-pincode-input-v2": "^2.0.0",
     "react-native-svg": "13.4.0",
     "react-native-svg-transformer": "^1.1.0",
+    "react-native-tab-view": "^3.5.2",
     "react-native-textarea": "^1.0.4",
     "react-native-ui-lib": "^7.6.0"
   },
